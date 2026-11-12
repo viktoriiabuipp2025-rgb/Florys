@@ -1,0 +1,33 @@
+/* Власні стилі Florys: лише те, що незручно виражати утилітами Tailwind */
+
+/* Єдине кільце фокуса для всіх інтерактивних елементів (доступність) */
+:focus-visible {
+  outline: 2px solid #5c3a42;
+  outline-offset: 2px;
+}
+footer :focus-visible {
+  outline-color: #fdfbf9;
+}
+
+/* Фірмова форма «пелюстка» для карток колекцій */
+.petal {
+  border-radius: 28px 8px 28px 8px;
+}
+
+/* Прибрати маркер <summary> у випадному меню (Safari) */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}

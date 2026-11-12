@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="uk" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Florys — точний підбір косметики за кольоротипом</title>
+    <meta name="description" content="Florys підбирає косметику за вашим кольоротипом, щоб кожен відтінок виглядав природно." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              page: "#FDFBF9",
+              tint: "#F7E8E6",
+              line: "#E8D5D0",
+              dark: "#5C3A42",
+              muted: "#7A5C63",
+              primary: "#9C4E62",
+              "primary-hover": "#843F52",
+              warning: "#8A5A00",
+              "input-border": "#8A6F78",
+            },
+            fontFamily: {
+              display: ['"Cormorant Garamond"', "Georgia", "serif"],
+              ui: ["Inter", "system-ui", "sans-serif"],
+            },
+            boxShadow: { card: "0 2px 8px rgba(92, 58, 66, 0.08)" },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-page font-ui text-dark antialiased selection:bg-primary selection:text-white">
+    <p id="live" class="sr-only" aria-live="polite"></p>
+
+    <!-- HEADER -->
+    <header class="border-line bg-page/90 sticky top-0 z-50 border-b backdrop-blur-md">
+      <div class="mx-auto max-w-[1200px] px-4 md:px-8">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <a href="index.html" aria-label="Florys — на головну" class="rounded">
+            <img
+              src="assets/images/logo.veb.svg"
+              alt="Florys"
+              width="100"
+              height="30"
+            />
+          </a>
+
+          <nav aria-label="Основна навігація" class="hidden md:flex">
+            <ul class="flex items-center gap-4 lg:gap-6">
+              <li>
+                <a
+                  href="catalog.html"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >Каталог</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#collections"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >Колекції</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#color-test"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >AI-підбір</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#video-presentation"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >Відео</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contacts"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >Контакти</a
+                >
+              </li>
+              <li>
+                <details class="group relative">
+                  <summary
+                    class="hover:text-primary inline-flex min-h-11 cursor-pointer list-none items-center gap-1 rounded px-1 font-medium transition-colors"
+                  >
+                    Про бренд
+                    <svg
+                      class="h-4 w-4 transition-transform group-open:rotate-180"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </summary>
+                  <ul
+                    class="border-line shadow-card absolute top-full left-0 z-10 mt-1 min-w-56 rounded-xl border bg-white p-2"
+                  >
+                    <li>
+                      <a
+                        href="shipping-payment.html"
+                        class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 transition-colors"
+                        >Доставка й оплата</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="returns.html"
+                        class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 transition-colors"
+                        >Умови повернення</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="faq.html"
+                        class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 transition-colors"
+                        >Питання й відповіді</a
+                      >
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="flex items-center gap-2 md:gap-3">
+            <form
+              role="search"
+              action="catalog.html"
+              method="get"
+              class="hidden md:block"
+            >
+              <label for="search-desktop" class="sr-only">Пошук товарів</label>
+              <input
+                id="search-desktop"
+                type="search"
+                name="q"
+                placeholder="Пошук"
+                class="border-input-border placeholder:text-muted min-h-11 w-full rounded-lg border bg-white px-3 text-base lg:w-56"
+              />
+            </form>
+            <a
+              href="account.html"
+              class="border-dark hover:bg-tint hidden min-h-11 items-center justify-center rounded-xl border-[1.5px] px-4 font-semibold transition-colors md:inline-flex"
+              >Увійти</a
+            >
+            <a
+              id="cart-link"
+              href="cart.html"
+              aria-label="Кошик, товарів: 0"
+              class="hover:bg-tint relative inline-flex h-11 w-11 items-center justify-center rounded-lg transition-colors"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 8h14l-1 12H6L5 8z" />
+                <path d="M9 8V6a3 3 0 016 0v2" />
+              </svg>
+              <span
+                id="cart-count"
+                aria-hidden="true"
+                class="bg-primary absolute -top-1 -right-1 hidden min-w-6 rounded-full px-1 text-center text-sm font-semibold leading-6 text-white"
+                >0</span
+              >
+            </a>
+            <button
+              id="menu-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              aria-label="Відкрити меню"
+              class="hover:bg-tint inline-flex h-11 w-11 items-center justify-center rounded-lg transition-colors md:hidden"
+            >
+              <svg
+                id="icon-open"
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+              <svg
+                id="icon-close"
+                class="hidden h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="border-line hidden border-t md:hidden">
+        <nav
+          aria-label="Мобільна навігація"
+          class="mx-auto max-w-[1200px] px-4 py-4"
+        >
+          <form role="search" action="catalog.html" method="get" class="mb-3">
+            <label for="search-mobile" class="sr-only">Пошук товарів</label>
+            <input
+              id="search-mobile"
+              type="search"
+              name="q"
+              placeholder="Пошук"
+              class="border-input-border placeholder:text-muted min-h-11 w-full rounded-lg border bg-white px-3 text-base lg:w-56"
+            />
+          </form>
+          <ul class="flex flex-col gap-1">
+            <li>
+              <a
+                href="catalog.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Каталог</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#collections"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Колекції</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#color-test"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >AI-підбір</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-presentation"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Відео</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contacts"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Контакти</a
+              >
+            </li>
+            <li>
+              <a
+                href="shipping-payment.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Доставка й оплата</a
+              >
+            </li>
+            <li>
+              <a
+                href="returns.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Умови повернення</a
+              >
+            </li>
+            <li>
+              <a
+                href="faq.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Питання й відповіді</a
+              >
+            </li>
+            <li>
+              <a
+                href="account.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Увійти</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section
+        id="hero"
+        aria-labelledby="hero-title"
+        class="mx-auto max-w-[1200px] px-4 py-8 text-center md:px-8 md:py-12"
+      >
+        <h1
+          id="hero-title"
+          class="font-display mx-auto max-w-3xl text-[34px] font-semibold leading-tight md:text-5xl"
+        >
+          Точний підбір косметики за вашим кольоротипом
+        </h1>
+        <p class="text-muted mx-auto mt-4 max-w-xl text-base">
+          Ласкаво просимо до світу індивідуального підбору косметики!
+        </p>
+        <div class="mt-6 flex flex-col justify-center gap-3 md:flex-row">
+          <a
+            href="#color-test"
+            class="bg-primary hover:bg-primary-hover focus-visible:outline-dark inline-flex min-h-11 w-full items-center justify-center rounded-xl px-6 font-semibold text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:w-auto"
+            >AI підбір</a
+          >
+          <a
+            href="catalog.html"
+            class="border-dark hover:bg-tint focus-visible:outline-dark inline-flex min-h-11 w-full items-center justify-center rounded-xl border-[1.5px] px-6 font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:w-auto"
+            >Каталог</a
+          >
+        </div>
+        <figure class="bg-tint mt-8 overflow-hidden rounded-2xl">
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="assets/images/bgphone.webp"
+            />
+            <img
+              src="assets/images/beckflorys.webp"
+              alt="Точний підбір косметики за вашим кольоротипом"
+              class="h-auto w-full"
+            />
+          </picture>
+        </figure>
+      </section>
+
+      <!-- BLOCK 01 -->
+      <section id="color-test" aria-labelledby="test-title" class="mx-auto max-w-[1200px] scroll-mt-20 px-4 py-8 md:px-8 md:py-12">
+        <h2 id="test-title" class="font-display text-2xl font-semibold md:text-3xl lg:text-4xl">Підберіть свій підтон</h2>
+        <p class="mb-6 mt-2 text-sm text-muted md:text-base lg:text-lg">Дайте відповідь на 6 питань і уточніть результат за зразками шкіри. Це займе хвилину.</p>
+        <div id="test-root" class="mx-auto w-full max-w-2xl rounded-2xl border border-line bg-white p-4 md:p-8"></div>
+        <noscript><p class="mt-4 text-center text-muted">Для проходження тесту потрібен JavaScript.</p></noscript>
+      </section>
+
+      <section
+        id="video-presentation"
+        aria-labelledby="video-title"
+        class="border-line mx-auto max-w-[1200px] border-t px-4 py-4 md:px-8 md:py-6"
+      >
+        <div class="mx-auto mb-4 max-w-2xl text-center">
+          <h2
+            id="video-title"
+            class="font-display text-2xl font-semibold md:text-3xl"
+          >
+            Як працює AI-підбір Florys
+          </h2>
+          <p class="text-muted mt-1 text-sm">
+            Перегляньте коротке відео про те, як відбувається процес підбору косметики.
+          </p>
+        </div>
+        <div class="bg-tint border-line shadow-card mx-auto max-w-3xl rounded-2xl border p-1 sm:p-1.5">
+          <div class="aspect-video bg-slate-200 w-full overflow-hidden rounded-xl">
+            <iframe
+              class="h-full w-full border-0"
+              src="https://www.youtube-nocookie.com/embed/39ZJ6ljMzG4"
+              title="Презентація технології AI-підбору Florys"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLLECTIONS -->
+      <section
+        id="collections"
+        aria-labelledby="collections-title"
+        class="mx-auto max-w-[1200px] px-4 py-8 md:px-8 md:py-12"
+      >
+        <h2
+          id="collections-title"
+          class="font-display text-2xl font-semibold md:text-3xl lg:text-4xl"
+        >
+          Колекції
+        </h2>
+        <p class="text-muted mt-2 mb-6">Обери свою колекцію</p>
+        <ul
+          role="list"
+          class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <li>
+            <article
+              class="petal bg-tint hover:shadow-card focus-within:shadow-card overflow-hidden transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <a href="catalog.html?collection=collection-1" class="block">
+                <figure class="aspect-[4/3]">
+                  <img
+                    src="assets/images/littleangel.webp"
+                    alt=""
+                    loading="lazy"
+                    class="h-full w-full object-cover"
+                  />
+                </figure>
+                <h3 class="p-4 text-xl font-semibold md:text-2xl">
+                  Little Angel
+                </h3>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article
+              class="petal bg-tint hover:shadow-card focus-within:shadow-card overflow-hidden transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <a href="catalog.html?collection=collection-2" class="block">
+                <figure class="aspect-[4/3]">
+                  <img
+                    src="assets/images/bungard.webp"
+                    alt=""
+                    loading="lazy"
+                    class="h-full w-full object-cover"
+                  />
+                </figure>
+                <h3 class="p-4 text-xl font-semibold md:text-2xl">
+                  Bunny Garden
+                </h3>
+              </a>
+            </article>
+          </li>
+          <li>
+            <article
+              class="petal bg-tint hover:shadow-card focus-within:shadow-card overflow-hidden transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <a href="catalog.html?collection=new" class="block">
+                <figure class="aspect-[4/3]">
+                  <img
+                    src="assets/images/swan.webp"
+                    alt=""
+                    loading="lazy"
+                    class="h-full w-full object-cover"
+                  />
+                </figure>
+                <h3 class="p-4 text-xl font-semibold md:text-2xl">
+                  Swan Ballet
+                </h3>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section
+        id="products"
+        aria-labelledby="products-title"
+        class="mx-auto max-w-[1200px] px-4 py-8 md:px-8 md:py-12"
+      >
+        <h2
+          id="products-title"
+          class="font-display mb-6 text-2xl font-semibold md:text-3xl lg:text-4xl"
+        >
+          Найпопулярніші товари
+        </h2>
+        <ul
+          role="list"
+          class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <li>
+            <article
+              class="border-line hover:shadow-card focus-within:shadow-card flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <figure class="bg-tint aspect-[4/5]">
+                <img
+                  src="assets/images/bg.blsh.webp"
+                  alt=""
+                  width="480"
+                  height="600"
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                />
+              </figure>
+              <div class="flex flex-1 flex-col gap-2 p-4 md:p-6">
+                <div class="flex flex-wrap gap-1">
+                  <span class="bg-tint rounded-md px-2 py-1 text-sm font-medium"
+                    >Теплий</span
+                  ><span
+                    class="bg-tint rounded-md px-2 py-1 text-sm font-medium"
+                   >Нейтральний</span
+                  >
+                </div>
+                <h3 class="text-xl font-semibold leading-snug md:text-2xl">
+                  Рум'яна The Sweetie Bear
+                </h3>
+                <p class="text-muted text-sm">Фініш: Матовий</p>
+                <div class="mt-auto flex flex-col gap-3 pt-2">
+                  <p class="text-lg font-semibold">
+                    <span class="sr-only">Ціна: </span>820 ₴
+                  </p>
+                  <button
+                    type="button"
+                    data-add="p1"
+                    aria-label="Додати в кошик: Рум'яна The Sweetie Bear"
+                    class="border-dark text-dark hover:bg-tint active:bg-line inline-flex min-h-11 w-full items-center justify-center rounded-xl border-[1.5px] px-6 text-base font-semibold transition-colors motion-reduce:transition-none"
+                  >
+                    Додати в кошик
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="border-line hover:shadow-card focus-within:shadow-card flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <figure class="bg-tint aspect-[4/5]">
+                <img
+                  src="assets/images/tsb.lg.webp"
+                  alt=""
+                  width="480"
+                  height="600"
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                />
+              </figure>
+              <div class="flex flex-1 flex-col gap-2 p-4 md:p-6">
+                <div class="flex flex-wrap gap-1">
+                  <span class="bg-tint rounded-md px-2 py-1 text-sm font-medium"
+                    >Теплий</span
+                  ><span
+                    class="bg-tint rounded-md px-2 py-1 text-sm font-medium"
+                    >Нейтральний</span
+                  >
+                </div>
+                <h3 class="text-xl font-semibold leading-snug md:text-2xl">
+                  Помада The Sweetie Bear
+                </h3>
+                <p class="text-muted text-sm">Фініш: Глянцевий</p>
+                <div class="mt-auto flex flex-col gap-3 pt-2">
+                  <p class="text-lg font-semibold">
+                    <span class="sr-only">Ціна: </span>680 ₴
+                  </p>
+                  <button
+                    type="button"
+                    data-add="p2"
+                    aria-label="Додати в кошик: Помада The Sweetie Bear"
+                    class="border-dark text-dark hover:bg-tint active:bg-line inline-flex min-h-11 w-full items-center justify-center rounded-xl border-[1.5px] px-6 text-base font-semibold transition-colors motion-reduce:transition-none"
+                  >
+                    Додати в кошик
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="border-line hover:shadow-card focus-within:shadow-card flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <figure class="bg-tint aspect-[4/5]">
+                <img
+                  src="assets/images/sb.eye.webp"
+                  alt=""
+                  width="480"
+                  height="600"
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                />
+              </figure>
+              <div class="flex flex-1 flex-col gap-2 p-4 md:p-6">
+                <div class="flex flex-wrap gap-1">
+                  <span class="bg-tint rounded-md px-2 py-1 text-sm font-medium"
+                    >Теплий</span
+                  >
+                </div>
+                <h3 class="text-xl font-semibold leading-snug md:text-2xl">
+                  Палетка тіней Swan Ballet
+                </h3>
+                <p class="text-muted text-sm">Фініш: Матовий</p>
+                <div class="mt-auto flex flex-col gap-3 pt-2">
+                  <p class="text-lg font-semibold">
+                    <span class="sr-only">Ціна: </span>1150 ₴
+                  </p>
+                  <button
+                    type="button"
+                    data-add="p3"
+                    aria-label="Додати в кошик: Палетка тіней Swan Ballet"
+                    class="border-dark text-dark hover:bg-tint active:bg-line inline-flex min-h-11 w-full items-center justify-center rounded-xl border-[1.5px] px-6 text-base font-semibold transition-colors motion-reduce:transition-none"
+                  >
+                    Додати в кошик
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="border-line hover:shadow-card focus-within:shadow-card flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <figure class="bg-tint aspect-[4/5]">
+                <img
+                  src="assets/images/la.lp.webp"
+                  alt=""
+                  width="480"
+                  height="600"
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                />
+              </figure>
+              <div class="flex flex-1 flex-col gap-2 p-4 md:p-6">
+                <div class="flex flex-wrap gap-1">
+                  <span class="bg-tint rounded-md px-2 py-1 text-sm font-medium"
+                    >Холодний</span
+                  ><span
+                    class="bg-tint rounded-md px-2 py-1 text-sm font-medium"
+                    >Нейтральний</span
+                  >
+                </div>
+                <h3 class="text-xl font-semibold leading-snug md:text-2xl">
+                  Помада для губ Little Angel
+                </h3>
+                <p class="text-muted text-sm">Фініш: Матовий</p>
+                <div class="mt-auto flex flex-col gap-3 pt-2">
+                  <p class="text-lg font-semibold">
+                    <span class="sr-only">Ціна: </span>710 ₴
+                  </p>
+                  <button
+                    type="button"
+                    data-add="p4"
+                    aria-label="Додати в кошик: Помада для губ Little Angel"
+                    class="border-dark text-dark hover:bg-tint active:bg-line inline-flex min-h-11 w-full items-center justify-center rounded-xl border-[1.5px] px-6 text-base font-semibold transition-colors motion-reduce:transition-none"
+                  >
+                    Додати в кошик
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="border-line hover:shadow-card focus-within:shadow-card flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <figure class="bg-tint aspect-[4/5]">
+                <img
+                  src="assets/images/la01.webp"
+                  alt=""
+                  width="480"
+                  height="600"
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                />
+              </figure>
+              <div class="flex flex-1 flex-col gap-2 p-4 md:p-6">
+                <div class="flex flex-wrap gap-1"></div>
+                <h3 class="text-xl font-semibold leading-snug md:text-2xl">
+                  Палетка тіней Little Angel
+                </h3>
+                <p class="text-muted text-sm">Фініш: Матовий</p>
+                <div class="mt-auto flex flex-col gap-3 pt-2">
+                  <p class="text-lg font-semibold">
+                    <span class="sr-only">Ціна: </span>1250 ₴
+                  </p>
+                  <p
+                    class="text-warning flex items-center gap-2 text-sm font-medium"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 8v5M12 16h.01" stroke-linecap="round" /></svg
+                    >Немає в наявності
+                  </p>
+                  <button
+                    type="button"
+                    data-notify="p5"
+                    class="border-dark text-dark hover:bg-tint active:bg-line inline-flex min-h-11 w-full items-center justify-center rounded-xl border-[1.5px] px-6 text-base font-semibold transition-colors motion-reduce:transition-none"
+                  >
+                    Повідомити про наявність
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="border-line hover:shadow-card focus-within:shadow-card flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition-shadow duration-200 motion-reduce:transition-none"
+            >
+              <figure class="bg-tint aspect-[4/5]">
+                <img
+                  src="assets/images/brush.webp"
+                  alt=""
+                  width="480"
+                  height="600"
+                  loading="lazy"
+                  class="h-full w-full object-cover"
+                />
+              </figure>
+              <div class="flex flex-1 flex-col gap-2 p-4 md:p-6">
+                <div class="flex flex-wrap gap-1"></div>
+                <h3 class="text-xl font-semibold leading-snug md:text-2xl">
+                  Кісточка для макіяжу
+                </h3>
+                <p class="text-muted text-sm"></p>
+                <div class="mt-auto flex flex-col gap-3 pt-2">
+                  <p class="text-lg font-semibold">
+                    <span class="sr-only">Ціна: </span>580 ₴
+                  </p>
+                  <button
+                    type="button"
+                    data-add="p6"
+                    aria-label="Додати в кошик: Кісточка для макіяжу"
+                    class="border-dark text-dark hover:bg-tint active:bg-line inline-flex min-h-11 w-full items-center justify-center rounded-xl border-[1.5px] px-6 text-base font-semibold transition-colors motion-reduce:transition-none"
+                  >
+                    Додати в кошик
+                  </button>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <div class="mt-8 flex justify-center">
+          <a
+            href="catalog.html"
+            class="border-dark text-dark hover:bg-tint active:bg-line inline-flex min-h-11 items-center justify-center rounded-xl border-[1.5px] px-6 text-base font-semibold transition-colors motion-reduce:transition-none"
+            >Дивитись усі</a
+          >
+        </div>
+      </section>
+
+      <!-- REVIEWS -->
+      <section
+        id="reviews"
+        aria-labelledby="reviews-title"
+        class="mx-auto max-w-[1200px] px-4 py-8 md:px-8 md:py-12"
+      >
+        <h2
+          id="reviews-title"
+          class="font-display text-2xl font-semibold md:text-3xl lg:text-4xl"
+        >
+          Відгуки
+        </h2>
+        <p class="text-muted mt-2 mb-6">Що кажуть клієнтки Florys</p>
+        <ul
+          role="list"
+          class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          <li>
+            <figure
+              class="border-line h-full rounded-2xl border bg-white p-4 md:p-6 lg:p-8"
+            >
+              <blockquote class="text-base">Дуже хвилювалася, чи підійде підтон, але результат перевершив очікування. Відтінок виглядає максимально природно та гармонійно. Щиро рекомендую!</blockquote>
+              <figcaption class="mt-4 flex items-center gap-3">
+                <img
+                  src="assets/images/avatar1.jpg"
+                  alt=""
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                  class="h-12 w-12 rounded-full object-cover"
+                />
+                <span
+                  ><span class="block font-semibold">Анна</span
+                  ><span class="text-primary block text-sm"
+                    >Теплий підтон</span
+                  ></span
+                >
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure
+              class="border-line h-full rounded-2xl border bg-white p-4 md:p-6 lg:p-8"
+            >
+              <blockquote class="text-base">Підбір за кольоротипом — це просто знахідка! Відтінок підійшов на всі 100%, угадали з першого разу. Тепер це мій улюблений засіб!</blockquote>
+              <figcaption class="mt-4 flex items-center gap-3">
+                <img
+                  src="assets/images/avatar2.jpg"
+                  alt=""
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                  class="h-12 w-12 rounded-full object-cover"
+                />
+                <span
+                  ><span class="block font-semibold">Марія</span
+                  ><span class="text-primary block text-sm"
+                    >Холодний підтон</span
+                  ></span
+                >
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure
+              class="border-line h-full rounded-2xl border bg-white p-4 md:p-6 lg:p-8"
+            >
+              <blockquote class="text-base">В захваті від замовлення! Все виглядає навіть краще, ніж на фото, текстура та якість просто неймовірні. Щиро рекомендую!</blockquote>
+              <figcaption class="mt-4 flex items-center gap-3">
+                <img
+                  src="assets/images/avatar3.jpg"
+                  alt=""
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                  class="h-12 w-12 rounded-full object-cover"
+                />
+                <span
+                  ><span class="block font-semibold">Олена</span
+                  ><span class="text-primary block text-sm"
+                    >Нейтральний підтон</span
+                  ></span
+                >
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FINAL CALL -->
+      <section
+        id="final-call"
+        aria-labelledby="final-title"
+        class="mx-auto max-w-[1200px] px-4 py-8 text-center md:px-8 md:py-12"
+      >
+        <h2
+          id="final-title"
+          class="font-display text-3xl font-semibold md:text-4xl"
+        >
+          Спробуйте примірку та збережіть профіль
+        </h2>
+        <p class="text-muted mx-auto mt-2 max-w-xl">
+          Збережіть свій кольоротип і отримуйте персональні рекомендації щоразу.
+        </p>
+        <div class="mt-6 flex flex-col justify-center gap-3 md:flex-row">
+          <a
+            href="#color-test"
+            class="bg-primary hover:bg-primary-hover focus-visible:outline-dark inline-flex min-h-11 w-full items-center justify-center rounded-xl px-6 font-semibold text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:w-auto"
+            >Спробувати примірку</a
+          >
+          <a
+            href="account.html"
+            class="border-dark hover:bg-tint focus-visible:outline-dark inline-flex min-h-11 w-full items-center justify-center rounded-xl border-[1.5px] px-6 font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 md:w-auto"
+            >Створити профіль</a
+          >
+        </div>
+        <figure class="bg-tint mt-8 overflow-hidden rounded-2xl">
+          <img
+            src="assets/images/bg2.webp"
+            alt="Віртуальна примірка косметики"
+            loading="lazy"
+            class="h-auto w-full"
+          />
+        </figure>
+      </section>
+            <!-- CONTACTS & GOOGLE MAPS SECTION -->
+      <section
+        id="contacts"
+        aria-labelledby="contacts-title"
+        class="border-line mx-auto max-w-[1200px] border-t px-4 py-8 md:px-8 md:py-12"
+      >
+        <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+          <div class="flex flex-col gap-4">
+            <h2
+              id="contacts-title"
+              class="font-display text-2xl font-semibold md:text-3xl lg:text-4xl"
+            >
+              Наш бутик та шоурум
+            </h2>
+            <p class="text-muted text-sm md:text-base">
+              Завітайте до нас для особистої консультації, тестування текстур та вибору ідеального відтінку косметики під ваш кольоротип.
+            </p>
+            
+            <address class="mt-2 space-y-3 text-sm not-italic md:text-base">
+              <p class="flex items-center gap-3">
+                <svg class="text-primary h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M12 21s-6-5.333-6-10a6 6 0 0112 0c0 4.667-6 10-6 10z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="11" r="2" />
+                </svg>
+                <span><strong>Адреса:</strong> м. Львів, вул. Степана Бандери, 12</span>
+              </p>
+              <p class="flex items-center gap-3">
+                <svg class="text-primary h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span><strong>Email:</strong> <a href="mailto:florys.cosm@gmail.com" class="hover:text-primary underline">florys.cosm@gmail.com</a></span>
+              </p>
+              <p class="flex items-center gap-3">
+                <svg class="text-primary h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span><strong>Телефон:</strong> <a href="tel:+380939624510" class="hover:text-primary underline">+380939624510</a></span>
+              </p>
+            </address>
+          </div>
+
+          <div class="bg-tint border-line shadow-card rounded-2xl border p-3 sm:p-4">
+            <div class="aspect-[4/3] bg-slate-200 w-full overflow-hidden rounded-xl">
+              <iframe
+                class="h-full w-full border-0"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.498428135898!2d24.012196676878957!3d49.83310933159934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add797e555555%3A0x7d0db7890b9b3e10!2sLviv%20Polytechnic%20National%20University!5e0!3m2!1sen!2sua!4v1700000000000!5m2!1sen!2sua"
+                title="Розташування шоуруму Florys на карті Google Maps"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="bg-dark text-page">
+      <div class="mx-auto max-w-[1200px] px-4 py-12 md:px-8 md:py-16">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div class="flex flex-col gap-4">
+            <a
+              href="index.html"
+              class="font-display text-page w-fit rounded text-3xl font-semibold"
+              >Florys</a
+            >
+            <p class="text-line max-w-xs text-base">
+              Florys підбирає косметику за вашим кольоротипом, щоб кожен
+              відтінок виглядав природно.
+            </p>
+          </div>
+          <nav aria-labelledby="f1">
+            <h2 id="f1" class="mb-3 text-lg font-semibold">Навігація</h2>
+            <ul class="flex flex-col">
+              <li>
+                <a
+                  href="catalog.html?category=lips"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Губи</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=eyes"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Очі</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=face"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Обличчя</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=accessories"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Аксесуари</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=perfume"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Парфуми</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=sets"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Набори</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#collections"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Колекції</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <nav aria-labelledby="f2">
+            <h2 id="f2" class="mb-3 text-lg font-semibold">
+              Корисні посилання
+            </h2>
+            <ul class="flex flex-col">
+              <li>
+                <a
+                  href="shipping-payment.html"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Доставка й оплата</a
+                >
+              </li>
+              <li>
+                <a
+                  href="returns.html"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Умови повернення та підтримка</a
+                >
+              </li>
+              <li>
+                <a
+                  href="faq.html"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Питання й відповіді</a
+                >
+              </li>
+              <li>
+                <a
+                  href="privacy-policy.html"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Політика конфіденційності</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div>
+            <h2 class="mb-3 text-lg font-semibold">Контакти</h2>
+            <address class="flex flex-col not-italic">
+              <ul class="flex flex-col">
+                <li>
+                  <a
+                    href="mailto:florys.cosm@gmail.com"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    >florys.cosm@gmail.com</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="tel:+380939624510"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    >+380939624510</a
+                  >
+                </li>
+              </ul>
+            </address>
+            <nav aria-label="Соціальні мережі" class="mt-2">
+              <ul class="flex flex-col">
+                <li>
+                  <a
+                    href="https://share.google/m5yebSb66xQkGzOfS"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Instagram<span class="sr-only">
+                      (відкриється в новій вкладці)</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://t.me/florystg"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Telegram<span class="sr-only">
+                      (відкриється в новій вкладці)</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://tiktok.com/@florys.cosmetic"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >TikTok<span class="sr-only">
+                      (відкриється в новій вкладці)</span
+                    ></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="border-page/20 mt-10 border-t pt-6">
+          <p class="text-line text-sm">© 2026 Florys. Усі права захищені.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/color-test.js"></script>
+  </body>
+</html>

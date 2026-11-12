@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Каталог — Florys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              page: '#FDFBF9',
+              tint: '#F7E8E6',
+              line: '#E8D5D0',
+              dark: '#5C3A42',
+              muted: '#7A5C63',
+              primary: '#9C4E62',
+              'primary-hover': '#843F52',
+              warning: '#8A5A00',
+              'input-border': '#8A6F78',
+            },
+            fontFamily: {
+              display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+              ui: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: { card: '0 2px 8px rgba(92, 58, 66, 0.08)' },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-page font-ui text-dark">
+    <p id="live" class="sr-only" aria-live="polite"></p>
+    <header class="border-line bg-page/90 sticky top-0 z-50 border-b backdrop-blur-md">
+      <div class="mx-auto max-w-[1200px] px-4 md:px-8">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <a href="index.html" aria-label="Florys — на головну" class="rounded">
+            <img
+              src="assets/images/logo.veb.svg"
+              alt="Florys"
+              width="100"
+              height="30"
+            />
+          </a>
+
+          <nav aria-label="Основна навігація" class="hidden md:flex">
+            <ul class="flex items-center gap-4 lg:gap-6">
+              <li>
+                <a
+                  href="catalog.html"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >Каталог</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#collections"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >Колекції</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#color-test"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >AI-підбір</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#video-presentation"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >Відео</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#contacts"
+                  class="hover:text-primary inline-flex min-h-11 items-center rounded px-1 font-medium underline-offset-4 transition-colors hover:underline"
+                  >Контакти</a
+                >
+              </li>
+              <li>
+                <details class="group relative">
+                  <summary
+                    class="hover:text-primary inline-flex min-h-11 cursor-pointer list-none items-center gap-1 rounded px-1 font-medium transition-colors"
+                  >
+                    Про бренд
+                    <svg
+                      class="h-4 w-4 transition-transform group-open:rotate-180"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                  </summary>
+                  <ul
+                    class="border-line shadow-card absolute top-full left-0 z-10 mt-1 min-w-56 rounded-xl border bg-white p-2"
+                  >
+                    <li>
+                      <a
+                        href="shipping-payment.html"
+                        class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 transition-colors"
+                        >Доставка й оплата</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="returns.html"
+                        class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 transition-colors"
+                        >Умови повернення</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="faq.html"
+                        class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 transition-colors"
+                        >Питання й відповіді</a
+                      >
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="flex items-center gap-2 md:gap-3">
+            <form
+              role="search"
+              action="catalog.html"
+              method="get"
+              class="hidden md:block"
+            >
+              <label for="search-desktop" class="sr-only">Пошук товарів</label>
+              <input
+                id="search-desktop"
+                type="search"
+                name="q"
+                placeholder="Пошук"
+                class="border-input-border placeholder:text-muted min-h-11 w-full rounded-lg border bg-white px-3 text-base lg:w-56"
+              />
+            </form>
+            <a
+              href="account.html"
+              class="border-dark hover:bg-tint hidden min-h-11 items-center justify-center rounded-xl border-[1.5px] px-4 font-semibold transition-colors md:inline-flex"
+              >Увійти</a
+            >
+            <a
+              id="cart-link"
+              href="cart.html"
+              aria-label="Кошик, товарів: 0"
+              class="hover:bg-tint relative inline-flex h-11 w-11 items-center justify-center rounded-lg transition-colors"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 8h14l-1 12H6L5 8z" />
+                <path d="M9 8V6a3 3 0 016 0v2" />
+              </svg>
+              <span
+                id="cart-count"
+                aria-hidden="true"
+                class="bg-primary absolute -top-1 -right-1 hidden min-w-6 rounded-full px-1 text-center text-sm font-semibold leading-6 text-white"
+                >0</span
+              >
+            </a>
+            <button
+              id="menu-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              aria-label="Відкрити меню"
+              class="hover:bg-tint inline-flex h-11 w-11 items-center justify-center rounded-lg transition-colors md:hidden"
+            >
+              <svg
+                id="icon-open"
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+              <svg
+                id="icon-close"
+                class="hidden h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="border-line hidden border-t md:hidden">
+        <nav
+          aria-label="Мобільна навігація"
+          class="mx-auto max-w-[1200px] px-4 py-4"
+        >
+          <form role="search" action="catalog.html" method="get" class="mb-3">
+            <label for="search-mobile" class="sr-only">Пошук товарів</label>
+            <input
+              id="search-mobile"
+              type="search"
+              name="q"
+              placeholder="Пошук"
+              class="border-input-border placeholder:text-muted min-h-11 w-full rounded-lg border bg-white px-3 text-base lg:w-56"
+            />
+          </form>
+          <ul class="flex flex-col gap-1">
+            <li>
+              <a
+                href="catalog.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Каталог</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#collections"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Колекції</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#color-test"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >AI-підбір</a
+              >
+            </li>
+            <li>
+              <a
+                href="#video-presentation"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Відео</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contacts"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Контакти</a
+              >
+            </li>
+            <li>
+              <a
+                href="shipping-payment.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Доставка й оплата</a
+              >
+            </li>
+            <li>
+              <a
+                href="returns.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Умови повернення</a
+              >
+            </li>
+            <li>
+              <a
+                href="faq.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Питання й відповіді</a
+              >
+            </li>
+            <li>
+              <a
+                href="account.html"
+                class="hover:bg-tint flex min-h-11 items-center rounded-lg px-3 font-medium transition-colors"
+                >Увійти</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+<div class="mx-auto max-w-[1200px] px-4 py-8 md:px-8 md:py-12">
+  <h1 id="catalog-title" class="mb-6 font-display text-3xl font-semibold md:text-4xl">Каталог</h1>
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-[16rem_1fr]">
+    <aside aria-label="Колекції та категорії">
+      <details class="rounded-xl border border-line bg-white p-3 lg:hidden"><summary class="flex min-h-11 cursor-pointer list-none items-center font-semibold">Колекції та категорії</summary><div class="mt-2"><nav aria-labelledby="sm-c"><h2 id="sm-c" class="mb-2 text-lg font-semibold">Колекції</h2>
+<ul><li><a href="catalog.html?collection=collection-1" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Little Angel</a></li>
+<li><a href="catalog.html?collection=collection-2" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Bunny Garden</a></li>
+<li><a href="catalog.html?collection=new" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Swan Ballet</a></li></ul></nav>
+<nav aria-labelledby="sm-k" class="mt-6"><h2 id="sm-k" class="mb-2 text-lg font-semibold">Категорії</h2>
+<ul><li><a href="catalog.html" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Усі товари</a></li><li><a href="catalog.html?category=lips" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Губи</a></li>
+<li><a href="catalog.html?category=eyes" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Очі</a></li>
+<li><a href="catalog.html?category=face" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Обличчя</a></li>
+<li><a href="catalog.html?category=accessories" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Аксесуари</a></li>
+<li><a href="catalog.html?category=perfume" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Парфуми</a></li>
+<li><a href="catalog.html?category=sets" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Набори</a></li></ul></nav></div></details>
+      <div class="hidden lg:block"><nav aria-labelledby="lg-c"><h2 id="lg-c" class="mb-2 text-lg font-semibold">Колекції</h2>
+<ul><li><a href="catalog.html?collection=collection-1" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Little Angel</a></li>
+<li><a href="catalog.html?collection=collection-2" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Bunny Garden</a></li>
+<li><a href="catalog.html?collection=new" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Swan Ballet</a></li></ul></nav>
+<nav aria-labelledby="lg-k" class="mt-6"><h2 id="lg-k" class="mb-2 text-lg font-semibold">Категорії</h2>
+<ul><li><a href="catalog.html" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Усі товари</a></li><li><a href="catalog.html?category=lips" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Губи</a></li>
+<li><a href="catalog.html?category=eyes" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Очі</a></li>
+<li><a href="catalog.html?category=face" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Обличчя</a></li>
+<li><a href="catalog.html?category=accessories" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Аксесуари</a></li>
+<li><a href="catalog.html?category=perfume" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Парфуми</a></li>
+<li><a href="catalog.html?category=sets" class="flex min-h-11 items-center rounded-lg px-3 transition-colors hover:bg-tint aria-[current=page]:bg-tint aria-[current=page]:font-semibold">Набори</a></li></ul></nav></div>
+    </aside>
+    <div>
+      <form id="filters-form" action="catalog.html" method="get" class="mb-6 grid grid-cols-1 gap-4 rounded-2xl border border-line bg-white p-4 sm:grid-cols-2 md:p-6 lg:grid-cols-4">
+        <fieldset><legend class="mb-1 font-semibold">Підтон</legend><label class="flex min-h-11 items-center gap-2"><input type="checkbox" name="tone" value="cool" class="h-5 w-5 accent-[#9C4E62]" />Холодний</label><label class="flex min-h-11 items-center gap-2"><input type="checkbox" name="tone" value="warm" class="h-5 w-5 accent-[#9C4E62]" />Теплий</label><label class="flex min-h-11 items-center gap-2"><input type="checkbox" name="tone" value="neutral" class="h-5 w-5 accent-[#9C4E62]" />Нейтральний</label>
+          <label class="flex min-h-11 items-center gap-2"><input type="checkbox" name="tone" value="olive" class="h-5 w-5 accent-[#9C4E62]" />Оливковий</label></fieldset>
+        <fieldset><legend class="mb-1 font-semibold">Фініш</legend><label class="flex min-h-11 items-center gap-2"><input type="checkbox" name="finish" value="Матовий" class="h-5 w-5 accent-[#9C4E62]" />Матовий</label><label class="flex min-h-11 items-center gap-2"><input type="checkbox" name="finish" value="Глянцевий" class="h-5 w-5 accent-[#9C4E62]" />Глянцевий</label><label class="flex min-h-11 items-center gap-2"><input type="checkbox" name="finish" value="Шимер" class="h-5 w-5 accent-[#9C4E62]" />Шимер</label></fieldset>
+        <fieldset><legend class="mb-1 font-semibold">Ціна, ₴</legend>
+          <label class="mb-2 block"><span class="sr-only">Від</span><input type="number" name="min" min="0" placeholder="від" class="min-h-11 w-full rounded-lg border border-input-border bg-white px-3 text-base" /></label>
+          <label class="block"><span class="sr-only">До</span><input type="number" name="max" min="0" placeholder="до" class="min-h-11 w-full rounded-lg border border-input-border bg-white px-3 text-base" /></label></fieldset>
+        <div class="flex flex-col justify-end gap-2"><button type="submit" class="inline-flex min-h-11 items-center justify-center rounded-xl px-6 text-base font-semibold transition-colors motion-reduce:transition-none bg-primary text-white hover:bg-primary-hover active:bg-primary-hover w-full">Застосувати</button><a href="catalog.html" class="inline-flex min-h-11 items-center justify-center rounded-xl px-6 text-base font-semibold transition-colors motion-reduce:transition-none border-[1.5px] border-dark text-dark hover:bg-tint active:bg-line w-full">Скинути</a></div>
+      </form>
+      <p id="catalog-notice" role="status" class="mb-4 hidden rounded-xl bg-tint p-4 text-sm md:text-base">Точного збігу за підтоном немає, тому показано інші товари. Перед вибором перевірте на сумісність.</p>
+      <p id="catalog-count" class="mb-4 text-muted" aria-live="polite"></p>
+      <ul id="catalog-grid" role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"></ul>
+      <p id="catalog-empty" class="hidden rounded-2xl bg-tint p-6 text-center">Нічого не знайдено. Змініть фільтри або <a href="catalog.html" class="text-primary underline">скиньте їх</a>.</p>
+    </div>
+  </div>
+</div>
+    </main>
+    <footer id="footer" class="bg-dark text-page">
+      <div class="mx-auto max-w-[1200px] px-4 py-12 md:px-8 md:py-16">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div class="flex flex-col gap-4">
+            <a
+              href="index.html"
+              class="font-display text-page w-fit rounded text-3xl font-semibold"
+              >Florys</a
+            >
+            <p class="text-line max-w-xs text-base">
+              Florys підбирає косметику за вашим кольоротипом, щоб кожен
+              відтінок виглядав природно.
+            </p>
+          </div>
+          <nav aria-labelledby="f1">
+            <h2 id="f1" class="mb-3 text-lg font-semibold">Навігація</h2>
+            <ul class="flex flex-col">
+              <li>
+                <a
+                  href="catalog.html?category=lips"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Губи</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=eyes"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Очі</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=face"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Обличчя</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=accessories"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Аксесуари</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=perfume"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Парфуми</a
+                >
+              </li>
+              <li>
+                <a
+                  href="catalog.html?category=sets"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Набори</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#collections"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Колекції</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <nav aria-labelledby="f2">
+            <h2 id="f2" class="mb-3 text-lg font-semibold">
+              Корисні посилання
+            </h2>
+            <ul class="flex flex-col">
+              <li>
+                <a
+                  href="shipping-payment.html"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Доставка й оплата</a
+                >
+              </li>
+              <li>
+                <a
+                  href="returns.html"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Умови повернення та підтримка</a
+                >
+              </li>
+              <li>
+                <a
+                  href="faq.html"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Питання й відповіді</a
+                >
+              </li>
+              <li>
+                <a
+                  href="privacy-policy.html"
+                  class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                  >Політика конфіденційності</a
+                >
+              </li>
+            </ul>
+          </nav>
+          <div>
+            <h2 class="mb-3 text-lg font-semibold">Контакти</h2>
+            <address class="flex flex-col not-italic">
+              <ul class="flex flex-col">
+                <li>
+                  <a
+                    href="mailto:florys.cosm@gmail.com"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    >florys.cosm@gmail.com</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="tel:+380939624510"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    >+380939624510</a
+                  >
+                </li>
+              </ul>
+            </address>
+            <nav aria-label="Соціальні мережі" class="mt-2">
+              <ul class="flex flex-col">
+                <li>
+                  <a
+                    href="https://instagram.com/florys.cosmetic"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Instagram<span class="sr-only">
+                      (відкриється в новій вкладці)</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://t.me/florystg"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Telegram<span class="sr-only">
+                      (відкриється в новій вкладці)</span
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-line inline-flex min-h-11 items-center rounded text-base underline-offset-4 transition-colors hover:text-white hover:underline motion-reduce:transition-none"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >TikTok<span class="sr-only">
+                      (відкриється в новій вкладці)</span
+                    ></a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="border-page/20 mt-10 border-t pt-6">
+          <p class="text-line text-sm">© 2026 Florys. Усі права захищені.</p>
+        </div>
+      </div>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
