@@ -43,7 +43,49 @@ window.FLORYS = {
       "img": "assets/images/bg.blsh.webp",
       "inStock": true,
       "category": "face",
-      "collection": ""
+      "collection": "",
+      "shades": [
+        {
+          "id": "p1-1",
+          "name": "Відтінок 01 Shimmer Souffle",
+          "hex": "#EBA4A1",
+          "img": "assets/images/blsh.tsb.01.webp",
+          "inStock": true,
+          "undertones": ["neutral", "warm"]
+        },
+        {
+          "id": "p1-2",
+          "name": "Відтінок 02 Garden Picnic",
+          "hex": "#F2C2B1",
+          "img": "assets/images/blsh.tsb.02.webp",
+          "inStock": true,
+          "undertones": ["cool"]
+        },
+        {
+          "id": "p1-3",
+          "name": "Відтінок 03 Rose Chanson",
+          "hex": "#E9B1AE",
+          "img": "assets/images/blsh.tsb.03.webp",
+          "inStock": true,
+          "undertones": ["cool", "neutral"]
+        },
+        {
+          "id": "p1-4",
+          "name": "Відтінок 4 Berry Parfait",
+          "hex": "#FDA3C1",
+          "img": "assets/images/blsh.tsb.04.webp",
+          "inStock": true,
+          "undertones": ["cool", "neutral"]
+        },
+         {
+          "id": "p1-5",
+          "name": "Відтінок 05 Bear Biscuit",
+          "hex": "#E39C93",
+          "img": "assets/images/blsh.tsb.05.webp",
+          "inStock": true,
+          "undertones": ["warm"]
+        }
+      ]
     },
     {
       "id": "p2",
