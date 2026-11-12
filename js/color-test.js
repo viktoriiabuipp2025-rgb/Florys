@@ -69,7 +69,7 @@ if (typeof module !== 'undefined') module.exports = { score, decide, pick };
       html = `<p class="mb-2 text-sm font-medium text-muted">Питання ${st.step + 1} з ${total}</p>
         <progress max="${total}" value="${st.step + 1}" aria-label="Прогрес тесту" class="mb-6 h-2 w-full appearance-none overflow-hidden rounded-full bg-line [&::-moz-progress-bar]:bg-primary [&::-webkit-progress-bar]:bg-line [&::-webkit-progress-value]:bg-primary"></progress>
         <fieldset><legend id="q-title" tabindex="-1" class="mb-4 text-xl font-semibold md:text-2xl">${photo ? 'Який зі зразків найближчий до відтінку вашої шкіри?' : QUESTIONS[st.step].q}</legend>
-        ${photo ? '<img src="assets/images/undertone-samples.png" alt="Чотири зразки шкіри: холодний рожевий, нейтральний бежевий, теплий золотистий, оливковий зеленуватий" width="1112" height="741" class="mb-4 h-auto w-full rounded-xl" />' : ''}
+        ${photo ? '<img src="assets/images/color.type.choose.webp" alt="Чотири зразки шкіри: холодний рожевий, нейтральний бежевий, теплий золотистий, оливковий зеленуватий" width="1112" height="741" class="mb-4 h-auto w-full rounded-xl" />' : ''}
         <div class="flex flex-col gap-3">${opts.map((o, i) => radio('opt', i, o, sel === i)).join('')}</div></fieldset>
         <div class="mt-6 flex flex-col gap-3 md:flex-row md:justify-between">
           <button type="button" data-back class="${OUTLINE} w-full md:w-auto" ${st.step === 0 ? 'disabled hidden' : ''}>Назад</button>
