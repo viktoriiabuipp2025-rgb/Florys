@@ -189,7 +189,7 @@
       const card = btn.closest('article');
       if (!p || !p.shades || p.shades.length < 2 || !card || card.dataset.shades) return;
       card.dataset.shades = '1';
-      const img = card.querySelector('img'), title = card.querySelector('h3');
+      const img = card.querySelector('img'), title = card.querySelector('h3, h4');
       if (!img || !title) return;
       const name = document.createElement('span');
       name.className = 'ml-1 text-base font-normal text-muted';
@@ -241,6 +241,7 @@
     });
   }
 
+  window.FLORYS_initShades = initShades;
   document.addEventListener('DOMContentLoaded', () => {
     initHeader(); updateCount(); initCatalog(); initCartPage(); initShades();
     document.addEventListener('click', (e) => {

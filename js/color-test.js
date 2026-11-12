@@ -22,7 +22,13 @@ function decide(candidates, photo) {
   if (candidates.length === 1) return !photo || photo === candidates[0] ? { lock: candidates[0] } : { choose: [candidates[0], photo], why: 'mismatch' };
   return photo && candidates.includes(photo) ? { lock: photo } : { choose: candidates, why: 'tie' };
 }
-if (typeof module !== 'undefined') module.exports = { score, decide };
+// Товари під підтон: за підтонами товару або його відтінків; якщо збігів немає, весь список
+function pick(products, tone) {
+  const has = (p) => (p.undertones || []).includes(tone) || (p.shades || []).some((s) => (s.undertones || []).includes(tone));
+  const exact = products.filter(has);
+  return { list: (exact.length ? exact : products).slice(0, 6), exact: exact.length > 0 };
+}
+if (typeof module !== 'undefined') module.exports = { score, decide, pick };
 
 (function () {
   if (typeof document === 'undefined') return; // для перевірки логіки в Node
@@ -36,6 +42,23 @@ if (typeof module !== 'undefined') module.exports = { score, decide };
   const radio = (name, i, label, checked) => `<label class="flex min-h-11 cursor-pointer items-center gap-3 rounded-xl border border-input-border bg-white p-4 transition-colors has-[:checked]:border-dark has-[:checked]:bg-tint motion-reduce:transition-none"><input type="radio" name="${name}" value="${i}" ${checked ? 'checked' : ''} class="h-5 w-5 shrink-0 accent-[#9C4E62]" /><span>${label}</span></label>`;
   const total = QUESTIONS.length + 1;
 
+  const fmt = (n) => `${n} ₴`;
+  function products(tone) {
+    const D = window.FLORYS;
+    if (!D || !D.products) return '';
+    const { list, exact } = pick(D.products, tone);
+    const cards = list.map((p) => `<li><article class="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-white">
+        <figure class="aspect-[4/5] bg-tint"><img src="${p.img}" alt="" width="480" height="600" loading="lazy" class="h-full w-full object-cover" /></figure>
+        <div class="flex flex-1 flex-col gap-2 p-4">
+          <h4 class="text-lg font-semibold leading-snug">${p.name}</h4>
+          <div class="mt-auto flex flex-col gap-3 pt-2"><p class="font-semibold">${fmt(p.price)}</p>
+          ${p.inStock ? `<button type="button" data-add="${p.id}" aria-label="Додати в кошик: ${p.name}" class="${OUTLINE} w-full">Додати в кошик</button>` : '<p class="text-sm font-medium text-warning">Немає в наявності</p>'}</div>
+        </div></article></li>`).join('');
+    return `<h4 class="mb-3 mt-8 text-xl font-semibold">Підібрані для вас товари</h4>
+      ${exact ? '' : '<p role="status" class="mb-4 rounded-xl bg-tint p-4 text-sm">Точного збігу за підтоном немає, тому показано інші товари. Перед вибором перевірте на сумісність.</p>'}
+      <ul role="list" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">${cards}</ul>`;
+  }
+
   function render() {
     let html = '';
     if (st.view === 'q') {
@@ -46,7 +69,7 @@ if (typeof module !== 'undefined') module.exports = { score, decide };
       html = `<p class="mb-2 text-sm font-medium text-muted">Питання ${st.step + 1} з ${total}</p>
         <progress max="${total}" value="${st.step + 1}" aria-label="Прогрес тесту" class="mb-6 h-2 w-full appearance-none overflow-hidden rounded-full bg-line [&::-moz-progress-bar]:bg-primary [&::-webkit-progress-bar]:bg-line [&::-webkit-progress-value]:bg-primary"></progress>
         <fieldset><legend id="q-title" tabindex="-1" class="mb-4 text-xl font-semibold md:text-2xl">${photo ? 'Який зі зразків найближчий до відтінку вашої шкіри?' : QUESTIONS[st.step].q}</legend>
-        ${photo ? '<img src="assets/images/color.type.choose.webp" alt="Чотири зразки шкіри: холодний рожевий, нейтральний бежевий, теплий золотистий, оливковий зеленуватий" width="1112" height="741" class="mb-4 h-auto w-full rounded-xl" />' : ''}
+        ${photo ? '<img src="assets/images/undertone-samples.png" alt="Чотири зразки шкіри: холодний рожевий, нейтральний бежевий, теплий золотистий, оливковий зеленуватий" width="1112" height="741" class="mb-4 h-auto w-full rounded-xl" />' : ''}
         <div class="flex flex-col gap-3">${opts.map((o, i) => radio('opt', i, o, sel === i)).join('')}</div></fieldset>
         <div class="mt-6 flex flex-col gap-3 md:flex-row md:justify-between">
           <button type="button" data-back class="${OUTLINE} w-full md:w-auto" ${st.step === 0 ? 'disabled hidden' : ''}>Назад</button>
@@ -58,10 +81,12 @@ if (typeof module !== 'undefined') module.exports = { score, decide };
     } else {
       html = `<h3 id="q-title" tabindex="-1" class="mb-2 font-display text-3xl font-semibold md:text-4xl">Ваш підтон: ${TONES[st.tone].toLowerCase()}</h3>
         <p class="mb-6 text-muted">Підтон закріплено за вашим профілем у цьому браузері.</p>
-        <div class="flex flex-col gap-3 md:flex-row"><a href="catalog.html?tone=${st.tone}" class="${PRIMARY} w-full md:w-auto">Переглянути відтінки</a><button type="button" data-restart class="${OUTLINE} w-full md:w-auto">Пройти ще раз</button></div>`;
+        <div class="flex flex-col gap-3 md:flex-row"><a href="catalog.html?tone=${st.tone}" class="${PRIMARY} w-full md:w-auto">Переглянути всі в каталозі</a><button type="button" data-restart class="${OUTLINE} w-full md:w-auto">Пройти ще раз</button></div>
+        ${products(st.tone)}`;
     }
     root.innerHTML = html;
     root.querySelector('#q-title')?.focus({ preventScroll: true });
+    if (st.view === 'result') window.FLORYS_initShades?.(); // кружечки відтінків у картках результату
   }
   function finish() {
     const { candidates } = score(st.answers);
